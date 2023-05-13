@@ -123,7 +123,15 @@ class HalamanUtama extends StatelessWidget {
                       //   ),
                       /* Hardcoded data */
                       ListTile(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    DetailPage(activity: data[0]),
+                              ),
+                            );
+                          },
                           leading: Image.network(
                               'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl-2.jpg'),
                           trailing: const Icon(Icons.more_vert),
@@ -131,7 +139,15 @@ class HalamanUtama extends StatelessWidget {
                           subtitle: const Text("makanan/minuman"),
                           tileColor: Colors.white70),
                       ListTile(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    DetailPage(activity: data[1]),
+                              ),
+                            );
+                          },
                           leading: Image.network(
                               'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl-2.jpg'),
                           trailing: const Icon(Icons.more_vert),
@@ -139,7 +155,15 @@ class HalamanUtama extends StatelessWidget {
                           subtitle: const Text("sembako"),
                           tileColor: Colors.white70),
                       ListTile(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    DetailPage(activity: data[2]),
+                              ),
+                            );
+                          },
                           leading: Image.network(
                               'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl-2.jpg'),
                           trailing: const Icon(Icons.more_vert),
@@ -147,7 +171,15 @@ class HalamanUtama extends StatelessWidget {
                           subtitle: const Text("makanan/minuman"),
                           tileColor: Colors.white70),
                       ListTile(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    DetailPage(activity: data[3]),
+                              ),
+                            );
+                          },
                           leading: Image.network(
                               'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl-2.jpg'),
                           trailing: const Icon(Icons.more_vert),
@@ -155,7 +187,15 @@ class HalamanUtama extends StatelessWidget {
                           subtitle: const Text("jasa"),
                           tileColor: Colors.white70),
                       ListTile(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    DetailPage(activity: data[4]),
+                              ),
+                            );
+                          },
                           leading: Image.network(
                               'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl-2.jpg'),
                           trailing: const Icon(Icons.more_vert),
@@ -163,7 +203,15 @@ class HalamanUtama extends StatelessWidget {
                           subtitle: const Text("pakaian"),
                           tileColor: Colors.white70),
                       ListTile(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    DetailPage(activity: data[5]),
+                              ),
+                            );
+                          },
                           leading: Image.network(
                               'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl-2.jpg'),
                           trailing: const Icon(Icons.more_vert),
@@ -228,6 +276,42 @@ class ButtonPerjanjian extends StatelessWidget {
         );
         ScaffoldMessenger.of(context).showSnackBar(snackBar);
       },
+    );
+  }
+}
+
+class DetailPage extends StatelessWidget {
+  final ActivityModel activity;
+
+  const DetailPage({Key? key, required this.activity}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Detail Page'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Activity ID: ${activity.id}',
+              style: Theme.of(context).textTheme.headline5,
+            ),
+            const SizedBox(height: 8),
+            Text(
+              'Activity Name: ${activity.nama}',
+              style: Theme.of(context).textTheme.headline6,
+            ),
+            const SizedBox(height: 8),
+            Text(
+              'Activity Type: ${activity.jenis}',
+              style: Theme.of(context).textTheme.subtitle1,
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
